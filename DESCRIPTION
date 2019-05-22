@@ -1,0 +1,18 @@
+Package: fgeo.validate
+Title: Validate ForestGEO Tables
+Version: 0.0.0.9000
+Authors@R: 
+    c(person(given = "Mauro",
+             family = "Lepore",
+             role = c("aut", "ctr", "cre"),
+             email = "leporem@si.edu",
+             comment = c(ORCID = "0000-0002-1986-7988")),
+      person(given = "CTFS-ForestGEO",
+             role = "cph",
+             email = "ForestGEO@si.edu"))
+Description: Validate ForestGEO tables.
+License: GPL-3 + file LICENSE
+Encoding: UTF-8
+LazyData: true
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
