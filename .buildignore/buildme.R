@@ -1,4 +1,19 @@
 library(usethis)
 
 create_package("../package")
+use_git()
+usethis::use_github("forestgeo", credentials = cred)
 use_directory(".buildignore", ignore = TRUE)
+use_roxygen_md()
+use_tidy_description()
+use_package_doc()
+use_readme_rmd()
+use_lifecycle_badge("experimental")
+use_cran_badge()
+use_github_labels(delete_default = TRUE)
+use_testthat()
+
+# Follow instructions, and add the environmental variable GITHUB_PAT
+use_travis()
+
+use_template("README.Rmd", package = "fgeo.template")

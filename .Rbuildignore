@@ -1,3 +1,5 @@
 ^fgeo\.Rproj$
 ^\.Rproj\.user$
 ^\.buildignore$
+^README\.Rmd$
+^\.travis\.yml$
