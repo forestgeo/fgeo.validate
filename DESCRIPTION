@@ -14,10 +14,11 @@ Description: Validate ForestGEO tables.
 License: GPL-3 + file LICENSE
 URL: https://github.com/forestgeo/fgeo.validate
 BugReports: https://github.com/forestgeo/fgeo.validate/issues
+Imports: 
+    rlang
+Suggests: 
+    testthat
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 6.1.1
-Suggests: 
-    testthat,
-    rlang
