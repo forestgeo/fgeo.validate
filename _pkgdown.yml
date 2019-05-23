@@ -1,0 +1,11 @@
+destination: docs
+
+template:
+  params:
+    bootswatch: united
+
+authors:
+  name:
+    href: "https://forestgeo.si.edu/"
+    html: "<img src='https://i.imgur.com/vTLlhbp.png' height=24>"
+

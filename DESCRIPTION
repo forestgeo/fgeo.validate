@@ -9,7 +9,7 @@ Authors@R:
              comment = c(ORCID = "0000-0002-1986-7988")),
       person(given = "CTFS-ForestGEO",
              role = "cph",
-             email = "ForestGEO@si.edu"))
+             comment = "https://forestgeo.si.edu/"))
 Description: Validate ForestGEO tables.
 License: GPL-3 + file LICENSE
 URL: https://github.com/forestgeo/fgeo.validate

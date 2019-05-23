@@ -21,7 +21,7 @@ Useful links:
 
 Other contributors:
 \itemize{
-  \item CTFS-ForestGEO \email{ForestGEO@si.edu} [copyright holder]
+  \item CTFS-ForestGEO (https://forestgeo.si.edu/) [copyright holder]
 }
 
 }
