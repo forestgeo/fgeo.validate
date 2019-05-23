@@ -3,3 +3,5 @@
 ^\.buildignore$
 ^README\.Rmd$
 ^\.travis\.yml$
+^private$
+^data-raw$
