@@ -1,4 +1,3 @@
-#' @importFrom rlang %||%
 read_view <- function(.table = NULL, plotname = NULL) {
   if (!grepl("fulltable|taxonomy", .table, ignore.case = TRUE)) {
     abort("`.table` must match 'full' or 'taxa'")
