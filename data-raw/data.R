@@ -1,3 +1,11 @@
+create_fgeo_tables <- function(plotname) {
+  rtbl::rtbl(
+    read_view("FullTable", plotname),
+    read_view("Taxonomy", plotname),
+    plotname = plotname
+  )
+}
+
 read_view <- function(.table = NULL, plotname = NULL) {
   if (!grepl("fulltable|taxonomy", .table, ignore.case = TRUE)) {
     abort("`.table` must match 'full' or 'taxa'")
@@ -14,9 +22,4 @@ read_view <- function(.table = NULL, plotname = NULL) {
   result
 }
 
-# yosemite
-rtbl::rtbl(
-  read_view("FullTable", "luquillo"),
-  read_view("Taxonomy", "luquillo"),
-  plotname = "yosemite"
-)
+# create_fgeo_tables("luquillo")
