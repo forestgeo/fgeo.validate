@@ -1,26 +1,6 @@
 test_that("check_fgeo_status_equals_vft_status", {
-  read_view <- function(.table = NULL, plotname = NULL) {
-    if (!grepl("fulltable|taxonomy", .table, ignore.case = TRUE)) {
-      rlang::abort("`.table` must match 'fulltable' or 'taxonomy'")
-    }
-
-    path <- fs::path("data-raw", "private", "view", plotname %||% "")
-
-    if (grepl("fulltable", .table, ignore.case = TRUE)) {
-      result <- fgeo.tool::read_vft(
-        fs::dir_ls(path = path, regexp = .table, ignore.case = TRUE)
-      )
-    } else {
-      result <- fgeo.tool::read_taxa(
-        fs::dir_ls(path = path, regexp = .table, ignore.case = TRUE)
-      )
-    }
-
-    result
-  }
-
   plotname <- "luquillo"
-  view <- read_view("fulltable", plotname)
+  view <- read_view("FullTable", plotname)
   fgeo <- tor::list_rdata(
     here::here("data-raw", "private", "fgeo", plotname, "full")
   )
