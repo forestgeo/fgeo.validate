@@ -17,7 +17,9 @@ BugReports: https://github.com/forestgeo/fgeo.validate/issues
 Imports: 
     rlang
 Suggests: 
-    testthat
+    testthat,
+    purrr,
+    dplyr
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
