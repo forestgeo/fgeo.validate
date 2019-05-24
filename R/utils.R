@@ -7,19 +7,21 @@ create_fgeo_tables <- function(plotname) {
 }
 
 read_view <- function(.table = NULL, plotname = NULL) {
-  if (!grepl("fulltable|taxonomy", .table, ignore.case = TRUE)) {
-    abort("`.table` must match 'full' or 'taxa'")
+  if (!grepl("fulltable|taxonomy", tolower(.table))) {
+    abort("`.table` must match 'fulltable' or 'taxonomy'")
   }
 
-  path <- fs::path("data-raw", "private", "view", plotname %||% "")
+  path <- fs::dir_ls(
+    path = fs::path("data-raw", "private", "view", plotname %||% ""),
+    regexp = .table,
+    ignore.case = TRUE
+  )
 
-  if (grepl("full", .table, ignore.case = TRUE)) {
-    result <- fgeo.tool::read_vft(fs::dir_ls(path = path, regexp = .table))
-  } else {
-    result <- fgeo.tool::read_taxa(fs::dir_ls(path = path, regexp = .table))
+  if (grepl("fulltable", tolower(.table))) {
+    return(fgeo.tool::read_vft(path))
   }
 
-  result
+  fgeo.tool::read_taxa(path)
 }
 
 add_id <- function(.data) {
