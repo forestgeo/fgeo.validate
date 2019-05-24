@@ -14,40 +14,9 @@ read_view <- function(.table = NULL, plotname = NULL) {
   result
 }
 
-fgeo_done <- fs::path_file(fs::dir_ls("data-raw/private/fgeo"))
-view_all <- fs::path_file(fs::dir_ls("data-raw/private/view"))
-is_done <- view_all %in% fgeo_done
-view_todo <- view_all[!is_done]
-view_todo
-
-# luquillo
-rtbl::rtbl(
-  read_view("FullTable", "luquillo"),
-  read_view("Taxonomy", "luquillo"),
-  plotname = "luquillo"
-)
-
-# hkk
-rtbl::rtbl(
-  read_view("FullTable", "luquillo"),
-  read_view("Taxonomy", "luquillo"),
-  plotname = "hkk"
-)
-
-# palanan
-rtbl::rtbl(
-  read_view("FullTable", "luquillo"),
-  read_view("Taxonomy", "luquillo"),
-  plotname = "palanan"
-)
-
 # yosemite
 rtbl::rtbl(
   read_view("FullTable", "luquillo"),
   read_view("Taxonomy", "luquillo"),
   plotname = "yosemite"
 )
-
-
-
-# TODO: onecensus
