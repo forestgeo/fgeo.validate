@@ -12,7 +12,7 @@ read_view <- function(.table = NULL, plotname = NULL) {
   }
 
   path <- fs::dir_ls(
-    path = fs::path("data-raw", "private", "view", plotname %||% ""),
+    path = testthat::test_path("private", "view", plotname %||% ""),
     regexp = .table,
     ignore.case = TRUE
   )
