@@ -1,6 +1,13 @@
 requirements
 ================
 
+FIXME
+
+  - `rtbl()` should not output missing values of `censusid`
+    (<https://github.com/forestgeo/rtbl/issues/53>).
+
+-----
+
     From: Lao, Suzanne
     Sent: Tuesday, April 30, 2019 2:47 PM
     To: Lepore, Mauro <LeporeM@si.edu>; Shameema Jafferjee Esufali (shameemaesufali@gmail.com)
