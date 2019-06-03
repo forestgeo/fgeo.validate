@@ -36,8 +36,8 @@ join_fgeo_and_view <- function(path_view_csv, path_stem_dir) {
   view <- fgeo.tool::read_vft(path_view_csv)
 
   dplyr::left_join(
-    dplyr::select(add_id(view), id, Status),
-    dplyr::select(add_id(bind_fgeo(path_stem_dir)), id, DFstatus),
+    dplyr::select(add_id(view), dplyr::everything()),
+    dplyr::select(add_id(bind_fgeo(path_stem_dir)), dplyr::everything()),
     by = "id"
   )
 }
