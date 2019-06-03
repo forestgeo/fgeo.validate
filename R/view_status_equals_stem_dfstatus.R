@@ -22,19 +22,7 @@ view_status_equals_stem_dfstatus <- function(path_view_csv, path_stem_dir) {
 }
 
 different_status_df <- function(path_view_csv, path_stem_dir) {
-  view <- fgeo.tool::read_vft(path_view_csv)
-  fgeo <- tor::list_rdata(path_stem_dir)
-
-  fgeo_and_view <- left_join(
-    dplyr::select(add_id(view), id, Status),
-    dplyr::select(
-      add_id(purrr::reduce(fgeo, dplyr::bind_rows)),
-      id, DFstatus
-    ),
-    by = "id"
-  )
-
-  fgeo_and_view %>%
+  join_fgeo_and_view(path_view_csv, path_stem_dir) %>%
     dplyr::mutate(
       is_matching_status = purrr::map2_lgl(
         .data$Status, .data$DFstatus, ~ isTRUE(all.equal(.x, .y))
@@ -42,4 +30,18 @@ different_status_df <- function(path_view_csv, path_stem_dir) {
     ) %>%
     dplyr::filter(!is.na(Status)) %>%
     dplyr::filter(!is_matching_status)
+}
+
+join_fgeo_and_view <- function(path_view_csv, path_stem_dir) {
+  view <- fgeo.tool::read_vft(path_view_csv)
+  fgeo <- tor::list_rdata(path_stem_dir)
+
+  dplyr::left_join(
+    dplyr::select(add_id(view), id, Status),
+    dplyr::select(
+      add_id(purrr::reduce(fgeo, dplyr::bind_rows)),
+      id, DFstatus
+    ),
+    by = "id"
+  )
 }
