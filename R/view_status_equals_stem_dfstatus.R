@@ -33,7 +33,12 @@ different_status_df <- function(path_view_csv, path_stem_dir) {
 }
 
 join_fgeo_and_view <- function(path_view_csv, path_stem_dir) {
-  view <- fgeo.tool::read_vft(path_view_csv)
+  view <- vroom::vroom(
+    file = path_view_csv,
+    delim = "\t",
+    na = c("", "NA", "NULL"),
+    col_types = fgeo.tool::type_vft()
+  )
 
   dplyr::left_join(
     dplyr::select(add_id(view), dplyr::everything()),

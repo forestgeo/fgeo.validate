@@ -18,10 +18,22 @@ read_view <- function(.table = NULL, plotname = NULL) {
   )
 
   if (grepl("fulltable", tolower(.table))) {
-    return(fgeo.tool::read_vft(path))
+    return(
+      vroom::vroom(
+        file = path,
+        delim = "\t",
+        na = c("", "NA", "NULL"),
+        col_types = fgeo.tool::type_vft()
+      )
+    )
   }
 
-  fgeo.tool::read_taxa(path)
+  vroom::vroom(
+    file = path,
+    delim = "\t",
+    na = c("", "NA", "NULL"),
+    col_types = fgeo.tool::type_taxa()
+  )
 }
 
 add_id <- function(.data) {
