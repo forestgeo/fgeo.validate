@@ -3,3 +3,7 @@
 # path_out <- testthat::test_path("private", "fgeo", "luquillo")
 # fs::dir_create(path_out)
 create_fgeo_tables("luquillo")
+
+path_out <- testthat::test_path("private", "fgeo", "pasoh")
+fs::dir_create(path_out)
+create_fgeo_tables("pasoh")
