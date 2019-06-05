@@ -21,8 +21,7 @@ FIXME
 1.  DFstatus is exactly the same as the status variable in
     ViewFullTable.
 
-2.  The status variable in the R tables is calculated as follows for
-    stems:
+Status abbreviations are as follows:
 
 | status\_in\_viewfulltable | status\_after\_rtbl |
 | :------------------------ | :------------------ |
@@ -31,20 +30,20 @@ FIXME
 | broken below or stem dead | G                   |
 | missing                   | M                   |
 
-> Also, do the following:
+Status must be adjusted as follows:
 
-3.  Give an Rstatus of P -“prior”, if a stem does not appear in the
+2.  Give an Rstatus of P -“prior”, if a stem does not appear in the
     first censuses, i.e. stem is first measured in a later census.
 
 Propagate `status == P` forward in all censuses until it first appears.
 
-4.  Propagate the Rstatus D (dead) forward, even if the stem disappears
+3.  Propagate the Rstatus D (dead) forward, even if the stem disappears
     in later censuses.
 
-5.  G - “gone” - propagate forward (even if stem disappears in later
+4.  G - “gone” - propagate forward (even if stem disappears in later
     censuses) until the stem is measured again in a later census.
 
-6.  If a stem was dead in a census, then later found alive, go back and
+5.  If a stem was dead in a census, then later found alive, go back and
     change all the Rstatus ‘D’ to ‘A’.
 
 > Stems may go through the following Rstatuses and in this order:
@@ -55,14 +54,14 @@ P, G, and/or D may be missing.
 
 > Problems that have to be fixed in the Rstatus sequence:
 
-7.  P should NEVER follow any of the other Rstatuses. It should be the
+6.  P should NEVER follow any of the other Rstatuses. It should be the
     first Rstatus, or not appear at all.
 
-8.  P should not go directly to G or D, without first going to A.
+7.  P should not go directly to G or D, without first going to A.
 
-9.  D should never be followed by A or G.
+8.  D should never be followed by A or G.
 
-10. Stems should not start with a G, they should start with P or A.
+9.  Stems should not start with a G, they should start with P or A.
     Somemes they start with a D when the site tags and measures dead
     stems
 

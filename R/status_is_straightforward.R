@@ -1,11 +1,14 @@
-#' Is `fgeo$status` the expected value based on `view$Status`?
+#' Is `fgeo$status` a straightforward abbreviation of `view$Status`?
+#'
+#' The alternative is a case when the status in a census changed based on what
+#' the status is in a later census.
 #'
 #' @param data Dataframe, the output of `compare_status()`.
 #'
 #' @return Logical.
 #' @export
-status_is_expected <- function(data) {
-  unexpected <- dplyr::filter(data, !.data$status_is_expected)
+status_is_straightforward <- function(data) {
+  unexpected <- dplyr::filter(data, !.data$status_is_straightforward)
   identical(nrow(unexpected), 0L)
 }
 
@@ -26,7 +29,7 @@ compare_status <- function(path_view_csv, path_stem_dir) {
 
   fv_status %>%
     dplyr::mutate(
-      status_is_expected =
+      status_is_straightforward =
         dplyr::case_when(
           str_detect(.data$status_view, "alive") &
             str_detect(.data$status_fgeo, "A") ~ TRUE,
